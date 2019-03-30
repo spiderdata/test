@@ -130,9 +130,9 @@
 						        }
 						    });
 						});
-
 					</script>
-					 <script src="https://img.highcharts.com.cn/highcharts/highcharts.js"></script>
+
+					<script src="https://img.highcharts.com.cn/highcharts/highcharts.js"></script>
 			        <script src="https://img.highcharts.com.cn/highcharts/modules/exporting.js"></script>
 			        <script src="https://img.highcharts.com.cn/highcharts/modules/series-label.js"></script>
 			        <script src="https://img.highcharts.com.cn/highcharts/modules/oldie.js"></script>
@@ -196,8 +196,8 @@
 												}
 										}
 								}]
-						}
-				});
+							}
+						});
 					</script>
 				</div>		   
 				<div id="two_storey">
@@ -331,7 +331,6 @@
 					});
 					</script>
 				</div>
-				
 				<div id="three_storey">
 					<script src="https://img.highcharts.com.cn/highcharts/highcharts.js"></script>
 			        <script src="https://img.highcharts.com.cn/highcharts/modules/exporting.js"></script>
@@ -404,14 +403,88 @@
 					    }]
 					});
 					</script>
-        <script src="https://img.highcharts.com.cn/highcharts/highcharts.js"></script>
-        <script src="https://img.highcharts.com.cn/highcharts/highcharts-more.js"></script>
-        <script src="https://img.hcharts.cn/highcharts-plugins/highcharts-zh_CN.js"></script>
-        <script src="https://img.highcharts.com.cn/highcharts/themes/dark-unica.js"></script>
-		<div id="three_storey_right"></div>
 
-				</div>
-			</div>
+                    <!--
+                    	岗位平均薪资
+                    	(柱状图)
+                    	横：工作年限
+                    	纵：薪资
+                    -->
+					<script src="https://img.highcharts.com.cn/highcharts/highcharts.js"></script>
+					<script src="https://img.highcharts.com.cn/highcharts/modules/exporting.js"></script>
+					<script src="https://img.highcharts.com.cn/highcharts/modules/series-label.js"></script>
+					<script src="https://img.highcharts.com.cn/highcharts/modules/oldie.js"></script>
+					<script src="https://img.highcharts.com.cn/highcharts-plugins/highcharts-zh_CN.js"></script>
+					<script src="https://img.highcharts.com.cn/highcharts/themes/dark-unica.js"></script>
+					<script src="js/Industry_trends.js"></script>
+					<div id="three_storey_right">
+						<h1>3右</h1>
+					</div>
+					<script>
+                        var chart = null;
+						$.getJSON('http://127.0.0.1:5000/v1/work_year_job_avgsalary', function (data) {
+						    // 解析数据
+							var avgSalary = parseAvgSalary(data);
+
+							chart = Highcharts.chart('three_storey_right', {
+								title: {
+									text: '岗位平均薪资(薪资/工作年限)'
+								},
+								subtitle: {
+									text: '数据来源：spiderdata.com'
+								},
+								xAxis: {
+									categories: ['1年以下', '1-3年', '3-5年', '5-10年', '10年以上']
+								},
+								yAxis: {
+									title: {
+										text: '薪资'
+									}
+								},
+								legend: {
+									layout: 'vertical',
+									align: 'right',
+									verticalAlign: 'middle'
+								},
+
+								series: [
+									{
+										name: 'Python_Min',
+										data: avgSalary['pythonMin']
+									},
+									{
+										name: 'Python_Max',
+										data: avgSalary['pythonMax']
+									},
+									{
+										name: 'Java_Min',
+										data: avgSalary['javaMin']
+									},
+									{
+										name: 'Java_Max',
+										data: avgSalary['javaMax']
+									},
+								],
+
+								// responsive: {
+								// 	rules: [{
+								// 		condition: {
+								// 			maxWidth: 500
+								// 		},
+								// 		chartOptions: {
+								// 			legend: {
+								// 				layout: 'horizontal',
+								// 				align: 'center',
+								// 				verticalAlign: 'bottom'
+								// 			}
+								// 		}
+								// 	}]
+								// }
+							});
+						});
+					</script>
+                </div>
+            </div>
 		</div>
 	</body>
 </html>
