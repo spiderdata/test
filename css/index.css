@@ -1,0 +1,72 @@
+@charset "utf-8";
+			a:link{ /*正常连接样式*/
+				   color:#8FBC8F; 
+				   text-decoration:underline; 
+				   text-decoration:none; 
+			} 
+			a:visited{/*定义已访问过的连接样式*/ 
+					  color:#00FF00; 
+					  text-decoration:none; 
+			} 
+			a:hover{ /*定义鼠标悬浮在连接上的样式*/
+			        color:#000000; 
+			        text-decoration:none; 
+			} 
+			a:active{/*定义鼠标点击连接时的样式*/
+					 color:#FFFFFF; 
+			         text-decoration:none; 
+			} 
+			.a1{
+							height: 150px;
+							width: 100%;
+							background:#D4D4D4;
+							margin-left: 0;
+							margin-right: 10px;
+							margin-top: 10px;
+							float: left;
+							font-size: 30px;
+							color: #969696;
+							border: 1px solid #000099; 
+						}
+			.a2{
+				height: 900px;
+				width: 160px;
+				background: #EED8AE;
+				margin-left: 0;
+				margin-top: 5px;
+				float: left;
+				font-size: 30px;
+				color: #969696;
+				border: 1px solid #000099; 
+				}
+			.a3{
+				height: 900px;
+				width: 160px;
+				background: #FAEBD7;
+				margin-left: 0;
+				margin-top: 5px;
+				float: right;
+				font-size: 30px;
+				color: #969696;
+				border: 1px solid #000099; 
+				}
+			.a4{
+				height: 800px;
+				width: 1170px;
+				background: #FFEC8B;
+				/*margin-left: 165px;
+				margin-right: 165px;*/
+				position:relative; top:167px; left: 166px;
+				font-size: 30px;
+				color: #969696;
+				border: 1px solid #000099; 
+				}
+			.a5{
+				height: 98px;
+				width: 1159px;
+				background: #71C671;
+				position:relative; top:167px; left: 163px;
+				font-size: 20px;
+				color: #CAE1FF;
+				border: 1px solid #000099; 
+			}
